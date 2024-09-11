@@ -7,10 +7,10 @@ import "@nomicfoundation/hardhat-foundry";
 import "@nomicfoundation/hardhat-chai-matchers";
 import "@nomicfoundation/hardhat-ignition-ethers";
 import "@nomicfoundation/hardhat-viem";
-import "@nomicfoundation/hardhat-toolbox/network-helpers";
+import "@nomicfoundation/hardhat-toolbox-viem/network-helpers";
+import '@nomicfoundation/hardhat-viem';
 
-import "@typechain/hardhat";
-
+import '@typechain/hardhat';
 import "hardhat-gas-reporter";
 import "hardhat-abi-exporter";
 import "hardhat-contract-sizer";
@@ -75,7 +75,7 @@ const config: HardhatUserConfig = {
     // https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/cancun.md
     // Only use Solidity default versions `>=0.8.20` for EVM networks that support the opcode `PUSH0`
     // Otherwise, use the versions `<=0.8.19`
-    version: "0.8.26",
+    version: "0.8.24",
     settings: {
       evmVersion: "paris", // Prevent using the `PUSH0` and `cancun` opcodes
       optimizer: {

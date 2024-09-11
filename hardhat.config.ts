@@ -7,6 +7,7 @@ import "@nomicfoundation/hardhat-foundry";
 import "@nomicfoundation/hardhat-chai-matchers";
 import "@nomicfoundation/hardhat-ignition-ethers";
 import "@nomicfoundation/hardhat-viem";
+import "@nomicfoundation/hardhat-toolbox/network-helpers";
 
 import "@typechain/hardhat";
 
@@ -86,15 +87,15 @@ const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
   networks: {
     hardhat: {
-      initialBaseFeePerGas: 0,
-      chainId: 31337,
-      hardfork: "cancun",
-      forking: {
-        url: vars.get("ETH_MAINNET_URL", ethMainnetUrl),
-        // blockNumber: 14743877,
-        enabled: false,
-      },
-      ledgerAccounts,
+      // initialBaseFeePerGas: 0,
+      // chainId: 31337,
+      // hardfork: "cancun",
+      // forking: {
+      //   url: vars.get("ETH_MAINNET_URL", ethMainnetUrl),
+      //   // blockNumber: 14743877,
+      //   enabled: false,
+      // },
+      // ledgerAccounts,
     },
     localhost: {
       url: "http://127.0.0.1:8545",
@@ -124,7 +125,7 @@ const config: HardhatUserConfig = {
       chainId: 17000,
       url: vars.get(
         "ETH_HOLESKY_TESTNET_URL",
-        "https://holesky.rpc.thirdweb.com",
+        "https://ethereum-holesky-rpc.publicnode.com",
       ),
       accounts,
       ledgerAccounts,

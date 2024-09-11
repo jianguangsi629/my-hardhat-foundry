@@ -89,3 +89,4 @@ out
 
 contracts/lib/*
 forge-lib/*
+lib/

@@ -6,19 +6,22 @@ import "@nomicfoundation/hardhat-ledger";
 import "@nomicfoundation/hardhat-foundry";
 import "@nomicfoundation/hardhat-chai-matchers";
 import "@nomicfoundation/hardhat-ignition-ethers";
+import "@nomicfoundation/hardhat-viem";
+
 import "@typechain/hardhat";
 
-import "xdeployer";
 import "hardhat-gas-reporter";
 import "hardhat-abi-exporter";
-import "solidity-coverage";
 import "hardhat-contract-sizer";
-// import * as tdly from "@tenderly/hardhat-tenderly";
 
+import "xdeployer";
+import "solidity-coverage";
+
+// import * as tdly from "@tenderly/hardhat-tenderly";
 // Turning off the automatic Tenderly verification
 // tdly.setup({ automaticVerifications: false });
 
-const ethMainnetUrl = vars.get("ETH_MAINNET_URL", "https://rpc.ankr.com/eth");
+const ethMainnetUrl = vars.get("ETH_MAINNET_URL", "https://eth.llamarpc.com");
 const accounts = [
   vars.get(
     "PRIVATE_KEY",
@@ -80,15 +83,7 @@ const config: HardhatUserConfig = {
       },
     },
   },
-  // Uncomment if you want to use the Truffle Dashboard module
-  // truffle: {
-  //   dashboardNetworkName: "truffleDashboard", // Truffle's default value is "truffleDashboard"
-  //   dashboardNetworkConfig: {
-  //     // Truffle's default value is 0 (i.e. no timeout), while Hardhat's default
-  //     // value is 40000 (40 seconds)
-  //     timeout: 0,
-  //   },
-  // },
+  defaultNetwork: "hardhat",
   networks: {
     hardhat: {
       initialBaseFeePerGas: 0,
@@ -96,15 +91,10 @@ const config: HardhatUserConfig = {
       hardfork: "cancun",
       forking: {
         url: vars.get("ETH_MAINNET_URL", ethMainnetUrl),
-        // The Hardhat network will by default fork from the latest mainnet block
-        // To pin the block number, specify it below
-        // You will need access to a node with archival data for this to work!
         // blockNumber: 14743877,
-        // If you want to do some forking, set `enabled` to true
         enabled: false,
       },
       ledgerAccounts,
-      // zksync: true, // Enable ZKsync in the Hardhat local network
     },
     localhost: {
       url: "http://127.0.0.1:8545",

@@ -5,7 +5,6 @@ import {
 import { expect } from "chai";
 import hre from "hardhat";
 import { getAddress, parseGwei } from "viem";
-import "@nomicfoundation/hardhat-viem";
 
 describe("Lock", function () {
   // We define a fixture to reuse the same setup in every test.
@@ -18,7 +17,8 @@ describe("Lock", function () {
     const unlockTime = BigInt((await time.latest()) + ONE_YEAR_IN_SECS);
 
     // Contracts are deployed using the first signer/account by default
-    const [owner, otherAccount] = await hre.viem.getWalletClients();
+    const [owner, otherAccount, fromWalletClient, toWalletClient] =
+      await hre.viem.getWalletClients();
 
     const lock = await hre.viem.deployContract("Lock", [unlockTime], {
       value: lockedAmount,
@@ -32,14 +32,16 @@ describe("Lock", function () {
       lockedAmount,
       owner,
       otherAccount,
+      fromWalletClient,
+      toWalletClient,
       publicClient,
     };
   }
 
-  describe.skip("Deployment", function () {
+  describe("Deployment", function () {
     it("Should set the right unlockTime", async function () {
       const { lock, unlockTime } = await loadFixture(deployOneYearLockFixture);
-
+      console.log(`unlockTime: ${unlockTime}`);
       expect(await lock.read.unlockTime()).to.equal(unlockTime);
     });
 
@@ -63,7 +65,7 @@ describe("Lock", function () {
       ).to.equal(lockedAmount);
     });
 
-    it("Should fail if the unlockTime is not in the future", async function () {
+    it.skip("Should fail if the unlockTime is not in the future", async function () {
       // We don't use the fixture here because we want a different deployment
       const latestTime = BigInt(await time.latest());
       await expect(
@@ -74,17 +76,17 @@ describe("Lock", function () {
     });
   });
 
-  describe.skip("Withdrawals", function () {
+  describe("Withdrawals", function () {
     describe("Validations", function () {
-      it("Should revert with the right error if called too soon", async function () {
+      it.skip("Should revert with the right error if called too soon", async function () {
         const { lock } = await loadFixture(deployOneYearLockFixture);
 
         await expect(lock.write.withdraw()).to.be.revertedWith(
-          "You can't withdraw yet",
+          "You can not withdraw yet",
         );
       });
 
-      it("Should revert with the right error if called from another account", async function () {
+      it.skip("Should revert with the right error if called from another account", async function () {
         const { lock, unlockTime, otherAccount } = await loadFixture(
           deployOneYearLockFixture,
         );
@@ -99,7 +101,7 @@ describe("Lock", function () {
           { client: { wallet: otherAccount } },
         );
         await expect(lockAsOtherAccount.write.withdraw()).to.be.revertedWith(
-          "You aren't the owner",
+          "You are not the owner",
         );
       });
 
@@ -115,7 +117,7 @@ describe("Lock", function () {
       });
     });
 
-    describe("Events", function () {
+    describe.skip("Events", function () {
       it("Should emit an event on withdrawals", async function () {
         const { lock, unlockTime, lockedAmount, publicClient } =
           await loadFixture(deployOneYearLockFixture);

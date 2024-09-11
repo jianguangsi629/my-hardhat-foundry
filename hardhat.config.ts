@@ -9,17 +9,14 @@ import "@nomicfoundation/hardhat-ignition-ethers";
 import "@typechain/hardhat";
 
 import "xdeployer";
-// Uncomment if you want to use the Truffle Dashboard module
-// You must also uncomment the subsequent `truffle` configuration in this file accordingly
-// import "@truffle/dashboard-hardhat-plugin";
 import "hardhat-gas-reporter";
 import "hardhat-abi-exporter";
 import "solidity-coverage";
 import "hardhat-contract-sizer";
-import * as tdly from "@tenderly/hardhat-tenderly";
+// import * as tdly from "@tenderly/hardhat-tenderly";
 
 // Turning off the automatic Tenderly verification
-tdly.setup({ automaticVerifications: false });
+// tdly.setup({ automaticVerifications: false });
 
 const ethMainnetUrl = vars.get("ETH_MAINNET_URL", "https://rpc.ankr.com/eth");
 const accounts = [
@@ -74,13 +71,13 @@ const config: HardhatUserConfig = {
     // https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/cancun.md
     // Only use Solidity default versions `>=0.8.20` for EVM networks that support the opcode `PUSH0`
     // Otherwise, use the versions `<=0.8.19`
-    version: "0.8.13",
+    version: "0.8.26",
     settings: {
+      evmVersion: "paris", // Prevent using the `PUSH0` and `cancun` opcodes
       optimizer: {
         enabled: true,
         runs: 999_999,
       },
-      evmVersion: "paris", // Prevent using the `PUSH0` and `cancun` opcodes
     },
   },
   // Uncomment if you want to use the Truffle Dashboard module
@@ -320,13 +317,13 @@ const config: HardhatUserConfig = {
       },
     ],
   },
-  tenderly: {
-    username: "MyAwesomeUsername",
-    project: "super-awesome-project",
-    forkNetwork: "",
-    privateVerification: false,
-    deploymentsDir: "deployments_tenderly",
-  },
+  // tenderly: {
+  //   username: "MyAwesomeUsername",
+  //   project: "super-awesome-project",
+  //   forkNetwork: "",
+  //   privateVerification: false,
+  //   deploymentsDir: "deployments_tenderly",
+  // },
 };
 
 export default config;

@@ -1,0 +1,7 @@
+[
+  "function getCounter() view returns (uint256)",
+  "function increment()",
+  "function initialize(uint256)",
+  "function owner() view returns (address)",
+  "function setNumber(uint256)"
+]

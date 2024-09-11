@@ -68,7 +68,7 @@ task(
 
 const config: HardhatUserConfig = {
   paths: {
-    sources: "./contracts/src",
+    // sources: "./contracts/src",
   },
   solidity: {
     // Only use Solidity default versions `>=0.8.25` for EVM networks that support the new `cancun` opcodes:

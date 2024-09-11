@@ -1,9 +1,9 @@
 # Defaults for all profiles.
 [profile.default]
-src = "contracts/src"                                     # Set the source directory.
-test = "contracts/test"                                   # Set the test directory.
+src = "src"                                               # Set the source directory.
+test = "test"                                             # Set the test directory.
 out = "forge-artifacts"                                   # Set the output directory for the artifacts.
-libs = ["contracts/lib"]                                  # Configure an array of library directories.
+libs = ["lib"]                                     # Configure an array of library directories.
 cache = true                                              # Enable caching.
 cache_path = "cache"                                      # Set the path to the cache.
 force = false                                             # Do not ignore the cache.

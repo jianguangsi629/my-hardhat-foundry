@@ -88,3 +88,4 @@ bin
 out
 
 contracts/lib/*
+forge-lib/*

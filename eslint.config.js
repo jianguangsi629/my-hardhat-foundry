@@ -22,6 +22,10 @@ module.exports = tseslint.config(
       parserOptions: {
         project: true,
       },
+      rules: {
+        "@typescript-eslint/no-explicit-any": "off", // 关闭对 `any` 类型的检查
+        "@typescript-eslint/no-inferrable-types": "off", // 关闭隐式类型的检查
+      },
     },
   },
   {

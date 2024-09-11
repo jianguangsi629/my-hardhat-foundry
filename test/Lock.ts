@@ -4,7 +4,7 @@ import {
 } from "@nomicfoundation/hardhat-toolbox/network-helpers";
 import { anyValue } from "@nomicfoundation/hardhat-chai-matchers/withArgs";
 import { expect } from "chai";
-import { getAddress, parseGwei } from "viem";
+import { parseGwei } from "viem";
 import { ethers } from "hardhat";
 
 async function deployOneYearLockFixture() {
@@ -22,8 +22,7 @@ async function deployOneYearLockFixture() {
 }
 
 describe("Lock", function () {
-  let owner;
-
+  let lock, unlockTime, lockedAmount, owner, otherAccount;
   beforeEach(async function () {
     ({ lock, unlockTime, lockedAmount, owner, otherAccount } =
       await loadFixture(deployOneYearLockFixture));
@@ -31,22 +30,14 @@ describe("Lock", function () {
 
   describe("Deployment", function () {
     it("Should set the right unlockTime", async function () {
-      const { lock, unlockTime } = await loadFixture(deployOneYearLockFixture);
-      console.log(`unlockTime: ${unlockTime}`);
       expect(await lock.unlockTime()).to.equal(unlockTime);
     });
 
     it("Should set the right owner", async function () {
-      const { lock, owner } = await loadFixture(deployOneYearLockFixture);
-
-      expect(await lock.owner()).to.equal(getAddress(owner.address));
+      expect(await lock.owner()).to.equal(owner.address);
     });
 
     it("Should receive and store the funds to lock", async function () {
-      const { lock, lockedAmount } = await loadFixture(
-        deployOneYearLockFixture,
-      );
-
       expect(await ethers.provider.getBalance(lock.target)).to.equal(
         lockedAmount,
       );
@@ -65,17 +56,12 @@ describe("Lock", function () {
   describe("Withdrawals", function () {
     describe("Validations", function () {
       it("Should revert with the right error if called too soon", async function () {
-        const { lock } = await loadFixture(deployOneYearLockFixture);
         await expect(lock.withdraw()).to.be.revertedWith(
           "You can't withdraw yet",
         );
       });
 
       it("Should revert with the right error if called from another account", async function () {
-        const { lock, unlockTime, otherAccount } = await loadFixture(
-          deployOneYearLockFixture,
-        );
-
         // We can increase the time in Hardhat Network
         await time.increaseTo(unlockTime);
 
@@ -86,23 +72,14 @@ describe("Lock", function () {
       });
 
       it("Shouldn't fail if the unlockTime has arrived and the owner calls it", async function () {
-        const { lock, unlockTime } = await loadFixture(
-          deployOneYearLockFixture,
-        );
-
         // Transactions are sent using the first signer by default
         await time.increaseTo(unlockTime);
-
         await expect(lock.withdraw()).to.be.satisfy;
       });
     });
 
     describe("Events", function () {
       it("Should emit an event on withdrawals", async function () {
-        const { lock, unlockTime, lockedAmount } = await loadFixture(
-          deployOneYearLockFixture,
-        );
-
         await time.increaseTo(unlockTime);
 
         await expect(lock.withdraw())
@@ -113,10 +90,6 @@ describe("Lock", function () {
 
     describe("Transfers", function () {
       it("Should transfer the funds to the owner", async function () {
-        const { lock, unlockTime, lockedAmount } = await loadFixture(
-          deployOneYearLockFixture,
-        );
-
         await time.increaseTo(unlockTime);
         await expect(lock.withdraw()).to.changeEtherBalances(
           [owner, lock],

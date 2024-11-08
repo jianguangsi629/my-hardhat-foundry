@@ -1,8 +1,14 @@
 # Defaults for all profiles.
 [profile.default]
-src = "src"                    # Set the source directory.                                # Set the test directory.
+src = "contracts/src"                    # Set the source directory.                                # Set the test directory.
 out = "out"                    # Set the output directory for the artifacts.
 libs = ["lib", "node_modules"]
+
+remappings = [
+    '@aave/core-v3/=node_modules/@aave/core-v3/',
+    '@openzeppelin/=node_modules/@openzeppelin/',
+    '@uniswap/=node_modules/@uniswap/'
+]
 
 cache = true # Enable caching.
 cache_path = "cache" # Set the path to the cache.

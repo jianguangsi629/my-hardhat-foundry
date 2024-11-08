@@ -4,3 +4,5 @@ xdeployer/=node_modules/xdeployer/
 @openzeppelin/contracts-upgradeable/=node_modules/@openzeppelin/contracts-upgradeable/
 forge-std/=node_modules/forge-std/src/
 ds-test/=node_modules/ds-test/src/
+@uniswap/v3-periphery/contracts/=node_modules/@uniswap/v3-periphery/contracts/
+@uniswap/v3-core/contracts/=node_modules/@uniswap/v3-core/contracts/

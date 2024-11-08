@@ -1,0 +1,13 @@
+[
+  "constructor(address,address)",
+  "error OwnableInvalidOwner(address)",
+  "error OwnableUnauthorizedAccount(address)",
+  "event OwnershipTransferred(address indexed,address indexed)",
+  "function lendingPool() view returns (address)",
+  "function liquidateAndArbitrage(address,address,address,uint256,bool,uint24)",
+  "function owner() view returns (address)",
+  "function renounceOwnership()",
+  "function swapRouter() view returns (address)",
+  "function transferOwnership(address)",
+  "function withdrawToken(address,uint256)"
+]

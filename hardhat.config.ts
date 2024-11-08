@@ -8,9 +8,9 @@ import "@nomicfoundation/hardhat-chai-matchers";
 import "@nomicfoundation/hardhat-ignition-ethers";
 import "@nomicfoundation/hardhat-viem";
 import "@nomicfoundation/hardhat-toolbox-viem/network-helpers";
-import '@nomicfoundation/hardhat-viem';
+import "@nomicfoundation/hardhat-viem";
 
-import '@typechain/hardhat';
+import "@typechain/hardhat";
 import "hardhat-gas-reporter";
 import "hardhat-abi-exporter";
 import "hardhat-contract-sizer";
@@ -68,7 +68,7 @@ task(
 
 const config: HardhatUserConfig = {
   paths: {
-    // sources: "./contracts/src",
+    sources: "./contracts/src",
   },
   solidity: {
     // Only use Solidity default versions `>=0.8.25` for EVM networks that support the new `cancun` opcodes:
@@ -239,7 +239,7 @@ const config: HardhatUserConfig = {
   },
   contractSizer: {
     alphaSort: true,
-    runOnCompile: true,
+    runOnCompile: false, // 禁用合约大小报告
     disambiguatePaths: false,
     strict: true,
     only: [],

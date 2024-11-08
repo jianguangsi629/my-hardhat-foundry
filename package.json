@@ -48,6 +48,9 @@
     "lint:fix": "pnpm prettier:fix && pnpm solhint:fix && npx eslint . --fix"
   },
   "devDependencies": {
+    "@aave/core-v3": "^1.19.3",
+    "@aave/protocol-js": "^4.3.0",
+    "@aave/protocol-v2": "^1.0.1",
     "@eslint/js": "^9.9.1",
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.7",
     "@nomicfoundation/hardhat-ethers": "^3.0.7",
@@ -68,12 +71,17 @@
     "@types/chai": "^4.3.19",
     "@types/mocha": "^10.0.7",
     "@types/node": "^22.5.1",
-    "ds-test": "https://github.com/dapphub/ds-test",
-    "forge-std": "https://github.com/foundry-rs/forge-std.git#v1.7.6",
+    "@uniswap/sdk-core": "^5.4.0",
+    "@uniswap/smart-order-router": "^3.49.0",
+    "@uniswap/v3-core": "^1.0.1",
+    "@uniswap/v3-periphery": "^1.4.4",
+    "@uniswap/v3-sdk": "^3.13.1",
     "chai": "^4.5.0",
+    "ds-test": "https://github.com/dapphub/ds-test",
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "ethers": "^6.13.2",
+    "forge-std": "https://github.com/foundry-rs/forge-std.git#v1.7.6",
     "hardhat": "^2.22.9",
     "hardhat-abi-exporter": "^2.10.1",
     "hardhat-contract-sizer": "^2.10.0",
@@ -88,5 +96,8 @@
     "typescript-eslint": "^8.3.0",
     "viem": "^2.21.5",
     "xdeployer": "^3.0.16"
+  },
+  "dependencies": {
+    "axios": "^1.7.7"
   }
 }

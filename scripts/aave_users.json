@@ -1,0 +1,110 @@
+{
+  "0x8be473dCfA93132658821E67CbEB684ec8Ea2E74": {
+    "address": "0x8be473dCfA93132658821E67CbEB684ec8Ea2E74",
+    "firstSeen": 1730443621633,
+    "lastSeen": 1730443621633,
+    "interactions": {
+      "borrow": false,
+      "supply": true,
+      "withdraw": false,
+      "repay": false
+    },
+    "healthFactor": "115792089237316195423570985008687907853269984665640564039457584007913129639935"
+  },
+  "0x8EF4f1a64E3CA5264bA16e8e797d0D6F73082Dc1": {
+    "address": "0x8EF4f1a64E3CA5264bA16e8e797d0D6F73082Dc1",
+    "firstSeen": 1730443622099,
+    "lastSeen": 1730443622099,
+    "interactions": {
+      "borrow": false,
+      "supply": true,
+      "withdraw": false,
+      "repay": false
+    },
+    "healthFactor": "115792089237316195423570985008687907853269984665640564039457584007913129639935"
+  },
+  "0x179639212da3bc47b39cf7f6e4da38074c7b3ff8": {
+    "address": "0x179639212da3bc47b39cf7f6e4da38074c7b3ff8",
+    "firstSeen": 1730443622099,
+    "lastSeen": 1730443622099,
+    "interactions": {
+      "borrow": false,
+      "supply": true,
+      "withdraw": false,
+      "repay": false
+    },
+    "healthFactor": "2766943095777368414"
+  },
+  "0xec65823b2295132ed0a79DD9b4BC40681d606683": {
+    "address": "0xec65823b2295132ed0a79DD9b4BC40681d606683",
+    "firstSeen": 1730444211155,
+    "lastSeen": 1730444211155,
+    "interactions": {
+      "borrow": true,
+      "supply": false,
+      "withdraw": false,
+      "repay": false
+    },
+    "healthFactor": "1596319311043625150"
+  },
+  "0xd84636A88d83FF6ce767413B7836357b808a1bC2": {
+    "address": "0xd84636A88d83FF6ce767413B7836357b808a1bC2",
+    "firstSeen": 1730444300645,
+    "lastSeen": 1730444842833,
+    "interactions": {
+      "borrow": false,
+      "supply": true,
+      "withdraw": false,
+      "repay": false
+    },
+    "healthFactor": "1636766291327986665"
+  },
+  "0x0650D230dDD42964797744eE1Bd62CE1b051e8C7": {
+    "address": "0x0650D230dDD42964797744eE1Bd62CE1b051e8C7",
+    "firstSeen": 1730444691105,
+    "lastSeen": 1730444691105,
+    "interactions": {
+      "borrow": true,
+      "supply": false,
+      "withdraw": false,
+      "repay": false
+    },
+    "healthFactor": "2641188037110259257"
+  },
+  "0x729b3EA8C005AbC58c9150fb57Ec161296F06766": {
+    "address": "0x729b3EA8C005AbC58c9150fb57Ec161296F06766",
+    "firstSeen": 1730444841898,
+    "lastSeen": 1730444841898,
+    "interactions": {
+      "borrow": false,
+      "supply": true,
+      "withdraw": false,
+      "repay": false
+    },
+    "healthFactor": "115792089237316195423570985008687907853269984665640564039457584007913129639935"
+  },
+  "0x800BA2C6F12EBE0CEf1aB2A6bDe239bA04A4eb26": {
+    "address": "0x800BA2C6F12EBE0CEf1aB2A6bDe239bA04A4eb26",
+    "firstSeen": 1730444842365,
+    "lastSeen": 1730444842365,
+    "interactions": {
+      "borrow": false,
+      "supply": true,
+      "withdraw": false,
+      "repay": false
+    },
+    "healthFactor": "115792089237316195423570985008687907853269984665640564039457584007913129639935"
+  },
+  "0xd5601097c127e8A964E4de66004B9EDA11955c71": {
+    "address": "0xd5601097c127e8A964E4de66004B9EDA11955c71",
+    "firstSeen": 1730444937860,
+    "lastSeen": 1730444937860,
+    "interactions": {
+      "borrow": true,
+      "supply": false,
+      "withdraw": false,
+      "repay": false
+    },
+    "healthFactor": "2964598809652894716"
+  }
+}
